@@ -1,0 +1,14 @@
+healthcare:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: PLACEHOLDER_WILL_REPLACE_SOON
+      user: PLACEHOLDER_WILL_REPLACE_SOON
+      password: PLACEHOLDER_WILL_REPLACE_SOON
+      role: ACCOUNTADMIN
+      database: HEALTHCARE_DB
+      warehouse: COMPUTE_WH
+      schema: STAGING
+      authenticator: password
+      threads: 4
