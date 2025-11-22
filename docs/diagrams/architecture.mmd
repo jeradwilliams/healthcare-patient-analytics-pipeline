@@ -1,0 +1,7 @@
+graph TD
+    A[S3 Raw Zone<br/>63k patients] --> B[External Stage]
+    B --> C[Snowflake STAGING]
+    C --> D[Airflow DAG<br/>self-healing]
+    D --> E[Great Expectations]
+    D --> F[dbt bronze → silver → gold]
+    F --> G[Patient Cohorts + Analytics]
