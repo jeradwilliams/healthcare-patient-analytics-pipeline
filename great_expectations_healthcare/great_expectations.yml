@@ -1,0 +1,11 @@
+config_version: 3.0
+datasources:
+  snowflake_healthcare:
+    class_name: Datasource
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      connection_string: snowflake://<USER>:<PASS>@izc29733.us-east-1.snowflakecomputing.com/?warehouse=HEALTHCARE_WH&role=ACCOUNTADMIN&database=HEALTHCARE_DB&schema=STAGING
+    data_connectors:
+      default_inferred_data_connector:
+        class_name: InferredAssetSqlDataConnector
+        include_schema_name: true
