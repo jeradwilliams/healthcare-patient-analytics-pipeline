@@ -23,21 +23,3 @@ graph TD
     E --> F["Great Expectations\n(Data Validation)"]
     F -->|Failure| G["Slack Alerts\n(via Snowflake Tasks/Lambda)"]
     F -->|Success| H["Analytics Marts\n(Ready for BI tools)"]
-
-    subgraph "Core Orchestration (Serverless)"
-        I["Snowflake Tasks\n(Scheduling & Retries)"]
-        D --> I
-        I --> E
-        I --> F
-        I --> G
-    end
-
-    subgraph "Optional Enhancement"
-        J["Apache Airflow\n(Advanced DAG orchestration,\nvisual monitoring, complex dependencies)"]
-        J -.-> D
-        J -.-> E
-        J -.-> F
-        J -.-> G
-    end
-
-    style J fill:#f9f,stroke:#333,stroke-dasharray: 5 5
