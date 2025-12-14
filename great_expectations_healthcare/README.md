@@ -22,5 +22,3 @@ Example from `expectations/patient_admissions_suite.json`:
     "value_set": ["M", "F"]
   }
 }
-
-<grok-card data-id="3aa9db" data-type="image_card"></grok-card>
