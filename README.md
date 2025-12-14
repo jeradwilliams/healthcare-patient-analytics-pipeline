@@ -12,15 +12,17 @@ This project processes synthetic healthcare data (mimicking real datasets like M
 Built with HIPAA compliance in mind: no real PHI, encrypted storage/transit, role-based access.
 
 ## Architecture
-A[S3 Raw Zone<br>(CSV/JSON synthetic
--------------------^
-    A[S3 Raw Zone<br>(CSV/JSON synthetic data)] --> B[AWS Glue Crawlers<br>(Infer schema)]
-    B --> C[AWS Glue Jobs<br>(ETL to Parquet)]
-    C --> D[Snowflake Data Warehouse<br>(Staging → Analytics schemas)]
-    D --> E[dbt Models<br>(Transformations & Tests)]
-    E --> F[Great Expectations<br>(Data Validation)]
-    F -->|Failure| G[Slack Alerts<br>(via Snowflake Tasks/Lambda)]
-    F -->|Success| H[Analytics Marts<br>(Ready for BI tools)]
+
+```mermaid
+graph TD
+    A[S3 Raw Zone\n(CSV/JSON synthetic data)] --> B[AWS Glue Crawlers\n(Infer schema)]
+    B --> C[AWS Glue Jobs\n(ETL to Parquet)]
+    C --> D[Snowflake Data Warehouse\n(Staging → Analytics schemas)]
+    D --> E[dbt Models\n(Transformations & Tests)]
+    E --> F[Great Expectations\n(Data Validation)]
+    F -->|Failure| G[Slack Alerts\n(via Snowflake Tasks/Lambda)]
+    F -->|Success| H[Analytics Marts\n(Ready for BI tools)]
+
     subgraph Observability
         G & H
     end
