@@ -1,0 +1,10 @@
+dbt/
+├── dbt_project.yml
+├── models/
+│   ├── staging/
+│   │   ├── stg_patients.sql
+│   │   └── stg_admissions.sql
+│   └── marts/
+│       └── mart_patient_readmissions.sql
+├── tests/
+└── packages.yml  (optional, for any dbt packages)
