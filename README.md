@@ -25,14 +25,15 @@ graph TD
     F -->|Success| H["Analytics Marts\n(Ready for BI tools)"]
 
     subgraph "Core Orchestration (Serverless)"
-        D --> I[Snowflake Tasks\n(Scheduling & Retries)]
+        I["Snowflake Tasks\n(Scheduling & Retries)"]
+        D --> I
         I --> E
         I --> F
         I --> G
     end
 
     subgraph "Optional Enhancement"
-        J[Apache Airflow\n(Advanced DAG orchestration,\nvisual monitoring, complex dependencies)]
+        J["Apache Airflow\n(Advanced DAG orchestration,\nvisual monitoring, complex dependencies)"]
         J -.-> D
         J -.-> E
         J -.-> F
