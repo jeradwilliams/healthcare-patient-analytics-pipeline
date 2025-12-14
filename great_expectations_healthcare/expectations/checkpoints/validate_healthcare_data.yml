@@ -1,0 +1,23 @@
+name: validate_healthcare_data
+config_version: 2.0
+class_name: Checkpoint
+run_name_template: "%Y%m%d-%H%M%S-healthcare-validation"
+validations:
+  - batch_request:
+      datasource_name: snowflake_datasource
+      data_connector_name: default_runtime_data_connector
+      data_asset_name: raw.admissions
+    expectation_suite_name: patient_admissions_suite
+  - batch_request:
+      datasource_name: snowflake_datasource
+      data_connector_name: default_runtime_data_connector
+      data_asset_name: raw.patients
+    expectation_suite_name: patient_admissions_suite
+action_list:
+  - name: store_validation_result
+    action:
+      class_name: StoreValidationResultAction
+  - name: update_data_docs
+    action:
+      class_name: UpdateDataDocsAction
+  # Add Slack alert action here in real setup
