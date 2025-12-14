@@ -12,8 +12,8 @@ This project processes synthetic healthcare data (mimicking real datasets like M
 Built with HIPAA compliance in mind: no real PHI, encrypted storage/transit, role-based access.
 
 ## Architecture
-```mermaid
-graph TD
+A[S3 Raw Zone<br>(CSV/JSON synthetic
+-------------------^
     A[S3 Raw Zone<br>(CSV/JSON synthetic data)] --> B[AWS Glue Crawlers<br>(Infer schema)]
     B --> C[AWS Glue Jobs<br>(ETL to Parquet)]
     C --> D[Snowflake Data Warehouse<br>(Staging → Analytics schemas)]
